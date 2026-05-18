@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ATELIUM Rénovation & Design — Rénovation & Boutique matériaux</title>
+  <meta name="description" content="ATELIUM Rénovation & Design : rénovation intérieure, accompagnement projet et boutique matériaux à Fameck." />
+
+  <style>
+    :root {
+      --cream: #f7f1e8;
+      --paper: #fffaf2;
+      --linen: #efe2d1;
+      --stone: #d8c8b4;
+      --ink: #14110e;
+      --ink2: #26201a;
+      --muted: #74695d;
+      --sage: #6f8066;
+      --sage2: #91a184;
+      --red: #ef4f55;
+      --cyan: #4fb7d1;
+      --bronze: #a77a4f;
+      --line: rgba(20,17,14,.13);
+      --line-light: rgba(255,255,255,.24);
+      --shadow: 0 28px 90px rgba(30,22,15,.16);
+      --radius: 30px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink2);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(111,128,102,.20), transparent 34rem),
+        radial-gradient(circle at 92% 0%, rgba(239,79,85,.10), transparent 28rem),
+        linear-gradient(180deg, var(--cream), #f1e7da 50%, var(--cream));
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1220px, calc(100% - 36px)); margin: 0 auto; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 50px;
+      padding: .9rem 1.22rem;
+      border-radius: 999px;
+      font-weight: 900;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: .25s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.dark { background: var(--ink); color: #fff; box-shadow: 0 16px 38px rgba(20,17,14,.22); }
+    .btn.light { background: rgba(255,250,242,.82); color: var(--ink); border-color: var(--line); }
+    .btn.sage { background: linear-gradient(135deg, var(--sage), var(--sage2)); color: #fff; box-shadow: 0 16px 38px rgba(111,128,102,.22); }
+    .btn.red { background: linear-gradient(135deg, #ef4f55, #ff7b68); color: #fff; box-shadow: 0 16px 38px rgba(239,79,85,.20); }
+    .btn.ghost { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.30); backdrop-filter: blur(10px); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .45rem .78rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,242,.72);
+      color: var(--sage);
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, .display {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -.058em;
+      color: var(--ink);
+      line-height: .92;
+    }
+    h1 { font-size: clamp(3.2rem, 7vw, 7.3rem); }
+    h2 { font-size: clamp(2.35rem, 4.8vw, 5rem); }
+    h3 { color: var(--ink); line-height: 1.12; }
+    p { color: var(--muted); }
+
+    /* Header */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 80;
+      border-bottom: 1px solid rgba(20,17,14,.10);
+      background: rgba(247,241,232,.78);
+      backdrop-filter: blur(18px);
+    }
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand { display: flex; align-items: center; }
+    .brand-logo { width: 215px; height: auto; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: .9rem;
+      font-size: .91rem;
+      font-weight: 850;
+      color: var(--muted);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-actions { display: flex; gap: .55rem; align-items: center; }
+
+    /* Premium gate */
+    .gate {
+      min-height: 100vh;
+      padding: 104px 0 26px;
+      position: relative;
+      overflow: hidden;
+    }
+    .gate::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(247,241,232,.96) 0%, rgba(247,241,232,.78) 38%, rgba(247,241,232,.22) 100%),
+        url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=84") center/cover;
+      z-index: -2;
+    }
+    .gate::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -18% -10%;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,250,242,.95), transparent 65%);
+      z-index: -1;
+    }
+    .gate-layout {
+      min-height: calc(100vh - 130px);
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 1.1rem;
+      align-items: stretch;
+    }
+    .gate-intro {
+      border: 1px solid var(--line);
+      background: rgba(255,250,242,.72);
+      backdrop-filter: blur(16px);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      padding: clamp(1.25rem, 3vw, 2.4rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .gate-intro .lead {
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      max-width: 650px;
+      margin-top: 1.1rem;
+    }
+    .mini-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .65rem;
+      margin-top: 1.35rem;
+    }
+    .mini-proof div {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.48);
+      border-radius: 20px;
+      padding: .88rem;
+    }
+    .mini-proof strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.05rem;
+    }
+    .mini-proof span {
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 750;
+    }
+    .gate-note {
+      margin-top: 1.2rem;
+      color: #6a5b4e;
+      font-size: .95rem;
+    }
+
+    .choice-wall {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+      min-height: 650px;
+    }
+    .choice-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 38px;
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.35rem;
+      color: #fff;
+      transition: .35s ease;
+    }
+    .choice-card:hover {
+      transform: translateY(-4px);
+    }
+    .choice-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20,17,14,.05), rgba(20,17,14,.78));
+      z-index: -1;
+    }
+    .choice-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 100%, rgba(255,250,242,.24), transparent 42%);
+      z-index: -1;
+    }
+    .choice-card.vitrine {
+      background:
+        linear-gradient(180deg, rgba(20,17,14,.05), rgba(20,17,14,.55)),
+        url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=84") center/cover;
+    }
+    .choice-card.shop {
+      background:
+        linear-gradient(180deg, rgba(20,17,14,.02), rgba(20,17,14,.68)),
+        url("https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1200&q=84") center/cover;
+    }
+    .choice-top {
+      position: absolute;
+      top: 1.15rem;
+      left: 1.15rem;
+      right: 1.15rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .choice-pill {
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.24);
+      backdrop-filter: blur(12px);
+      border-radius: 999px;
+      padding: .48rem .72rem;
+      font-weight: 950;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .choice-number {
+      width: 44px; height: 44px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.28);
+      backdrop-filter: blur(10px);
+      font-weight: 950;
+    }
+    .choice-content {
+      position: relative;
+      z-index: 2;
+      border-radius: 28px;
+      background: rgba(12,10,8,.34);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(10px);
+      padding: 1.15rem;
+    }
+    .choice-content h2 {
+      color: #fff;
+      font-size: clamp(2.1rem, 3.8vw, 4.1rem);
+      margin-bottom: .7rem;
+    }
+    .choice-content p {
+      color: rgba(255,255,255,.76);
+      font-size: 1.02rem;
+      margin-bottom: 1rem;
+    }
+    .choice-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .65rem;
+    }
+
+    /* Sections */
+    section.content-section { padding: 6rem 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1.4rem;
+      margin-bottom: 1.65rem;
+    }
+    .section-head p { max-width: 560px; }
+
+    .page-anchor {
+      scroll-margin-top: 95px;
+    }
+
+    .vitrine-page {
+      background:
+        radial-gradient(circle at 0% 15%, rgba(111,128,102,.18), transparent 34rem),
+        var(--cream);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .editorial {
+      border: 1px solid var(--line);
+      background: rgba(255,250,242,.72);
+      border-radius: 34px;
+      padding: 1.55rem;
+      box-shadow: 0 20px 58px rgba(30,22,15,.10);
+    }
+    .editorial h2 { margin: .8rem 0 1rem; }
+    .editorial p { font-size: 1.02rem; }
+    .editorial-list {
+      margin-top: 1.2rem;
+      display: grid;
+      gap: .65rem;
+    }
+    .line-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.48);
+      font-weight: 850;
+    }
+    .line-item span { color: var(--sage); }
+    .vitrine-visual {
+      min-height: 520px;
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(20,17,14,.02), rgba(20,17,14,.56)),
+        url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=84") center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+    .visual-label {
+      position: absolute;
+      left: 1rem; right: 1rem; bottom: 1rem;
+      border-radius: 24px;
+      background: rgba(255,250,242,.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,.5);
+    }
+    .visual-label strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.25rem;
+    }
+    .visual-label span { color: var(--muted); font-weight: 750; }
+
+    .service-strip {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: .75rem;
+    }
+    .service-mini {
+      min-height: 154px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,242,.72);
+      padding: 1rem;
+    }
+    .service-mini b {
+      color: var(--sage);
+      text-transform: uppercase;
+      font-size: .76rem;
+      letter-spacing: .08em;
+    }
+    .service-mini h3 { margin-top: .55rem; font-size: 1.1rem; }
+    .service-mini p { margin-top: .35rem; font-size: .92rem; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr .9fr;
+      gap: .85rem;
+    }
+    .project {
+      min-height: 420px;
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 55px rgba(30,22,15,.11);
+    }
+    .project:nth-child(1) {
+      background:
+        linear-gradient(180deg, rgba(20,17,14,.02), rgba(20,17,14,.64)),
+        url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=84") center/cover;
+    }
+    .project:nth-child(2) {
+      background:
+        linear-gradient(180deg, rgba(20,17,14,.02), rgba(20,17,14,.64)),
+        url("https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=84") center/cover;
+    }
+    .project:nth-child(3) {
+      background:
+        linear-gradient(180deg, rgba(20,17,14,.02), rgba(20,17,14,.64)),
+        url("https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=84") center/cover;
+    }
+    .caption {
+      position: absolute;
+      left: .9rem; right: .9rem; bottom: .9rem;
+      border-radius: 22px;
+      background: rgba(255,250,242,.91);
+      padding: .95rem;
+      backdrop-filter: blur(10px);
+    }
+    .caption small {
+      color: var(--sage);
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .caption h3 { margin-top: .25rem; }
+
+    /* Shop page */
+    .shop-page {
+      background:
+        radial-gradient(circle at 10% 5%, rgba(79,183,209,.14), transparent 30rem),
+        radial-gradient(circle at 95% 10%, rgba(239,79,85,.12), transparent 30rem),
+        #eee4d7;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .shop-hero {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 1rem;
+      align-items: stretch;
+      margin-bottom: 1rem;
+    }
+    .shop-intro {
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,242,.78);
+      padding: 1.35rem;
+      box-shadow: 0 20px 58px rgba(30,22,15,.10);
+    }
+    .shop-intro h2 { margin: .8rem 0 1rem; }
+    .shop-dashboard {
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: linear-gradient(135deg, rgba(20,17,14,.94), rgba(45,37,29,.92));
+      color: #fff;
+      padding: 1.15rem;
+      box-shadow: var(--shadow);
+    }
+    .shop-dashboard p { color: rgba(255,255,255,.68); }
+    .dash-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .7rem;
+    }
+    .dash-card {
+      min-height: 130px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      padding: .95rem;
+    }
+    .dash-card strong {
+      display: block;
+      font-size: 1.9rem;
+      color: #fff;
+      line-height: 1;
+    }
+    .dash-card span {
+      display: block;
+      color: rgba(255,255,255,.65);
+      margin-top: .45rem;
+      font-weight: 750;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .shop-side {
+      position: sticky;
+      top: 96px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,242,.82);
+      box-shadow: 0 18px 55px rgba(30,22,15,.10);
+      padding: 1rem;
+    }
+    .shop-side h3 { margin-bottom: .75rem; }
+    .cat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: .85rem;
+      border-radius: 17px;
+      color: var(--muted);
+      font-weight: 900;
+      border: 1px solid transparent;
+    }
+    .cat:hover, .cat.active {
+      color: var(--ink);
+      border-color: var(--line);
+      background: rgba(255,255,255,.52);
+    }
+    .cart-sim {
+      margin-top: 1rem;
+      border-radius: 22px;
+      padding: .95rem;
+      background: var(--ink);
+      color: #fff;
+    }
+    .cart-sim p { color: rgba(255,255,255,.65); font-size: .92rem; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .95rem;
+    }
+    .product {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--paper);
+      overflow: hidden;
+      box-shadow: 0 18px 55px rgba(30,22,15,.10);
+      transition: .25s ease;
+    }
+    .product:hover { transform: translateY(-3px); }
+    .product-img {
+      height: 195px;
+      position: relative;
+      background: #ddd;
+    }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .stock {
+      position: absolute;
+      top: .8rem; left: .8rem;
+      border-radius: 999px;
+      padding: .42rem .7rem;
+      background: var(--sage);
+      color: #fff;
+      font-weight: 950;
+      font-size: .78rem;
+    }
+    .stock.low { background: var(--red); }
+    .product-body { padding: 1rem; }
+    .product-body small {
+      color: var(--sage);
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .product-body h3 { margin: .42rem 0 .3rem; }
+    .price {
+      margin-top: .65rem;
+      color: var(--ink);
+      font-weight: 950;
+    }
+    .product-actions {
+      display: grid;
+      gap: .55rem;
+      margin-top: .9rem;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .8rem;
+      margin-top: 1rem;
+    }
+    .flow-card {
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,242,.78);
+      padding: 1rem;
+    }
+    .flow-card b {
+      display: grid;
+      place-items: center;
+      width: 38px; height: 38px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      margin-bottom: .8rem;
+    }
+
+
+    /* Cart and checkout */
+    .cart-panel-section {
+      padding-top: 2rem;
+    }
+    .cart-panel {
+      margin-top: 1rem;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: linear-gradient(135deg, rgba(20,17,14,.96), rgba(44,36,29,.94));
+      color: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .cart-panel-inner {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 0;
+    }
+    .cart-list {
+      padding: 1.2rem;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+    .cart-list h3,
+    .checkout-box h3 {
+      color: #fff;
+      font-size: 1.45rem;
+      margin-bottom: .7rem;
+    }
+    .empty-cart {
+      border-radius: 22px;
+      border: 1px dashed rgba(255,255,255,.22);
+      background: rgba(255,255,255,.06);
+      padding: 1rem;
+      color: rgba(255,255,255,.68);
+      font-weight: 750;
+    }
+    .cart-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .8rem;
+      align-items: center;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.07);
+      padding: .9rem;
+      margin-bottom: .65rem;
+    }
+    .cart-item strong {
+      display: block;
+      color: #fff;
+    }
+    .cart-item span {
+      display: block;
+      color: rgba(255,255,255,.62);
+      font-size: .9rem;
+      margin-top: .15rem;
+    }
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+    }
+    .qty-controls button,
+    .remove-item {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: #fff;
+      font-weight: 950;
+      cursor: pointer;
+    }
+    .remove-item {
+      width: auto;
+      padding: 0 .7rem;
+      color: rgba(255,255,255,.72);
+    }
+    .checkout-box {
+      padding: 1.2rem;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(239,79,85,.18), transparent 18rem),
+        rgba(255,255,255,.03);
+    }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .7rem 0;
+      color: rgba(255,255,255,.74);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      font-weight: 800;
+    }
+    .summary-line.total {
+      color: #fff;
+      font-size: 1.2rem;
+      border-bottom: 0;
+      padding-top: 1rem;
+    }
+    .payment-methods {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .55rem;
+    }
+    .payment-method {
+      min-height: 58px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,.78);
+      font-weight: 950;
+      font-size: .86rem;
+    }
+    .checkout-form {
+      margin-top: 1rem;
+      display: grid;
+      gap: .7rem;
+    }
+    .checkout-form input {
+      border-color: rgba(255,255,255,.15);
+      background: rgba(255,255,255,.92);
+    }
+    .checkout-note {
+      color: rgba(255,255,255,.58);
+      font-size: .86rem;
+      margin-top: .7rem;
+    }
+    .floating-cart {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 90;
+      min-width: 170px;
+      box-shadow: 0 18px 50px rgba(20,17,14,.28);
+    }
+    .cart-count {
+      display: inline-grid;
+      place-items: center;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-size: .76rem;
+      margin-left: .3rem;
+    }
+
+
+
+    .order-confirmation {
+      display: none;
+      margin-top: 1rem;
+      border-radius: 30px;
+      border: 1px solid rgba(111,128,102,.22);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(111,128,102,.18), transparent 18rem),
+        rgba(255,250,242,.92);
+      color: var(--ink);
+      padding: 1.2rem;
+      box-shadow: 0 18px 55px rgba(30,22,15,.10);
+    }
+    .order-confirmation.is-visible {
+      display: block;
+    }
+    .success-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--sage);
+      color: #fff;
+      font-weight: 950;
+      font-size: 1.6rem;
+      margin-bottom: .9rem;
+    }
+    .order-confirmation h3 {
+      font-size: 1.55rem;
+      margin-bottom: .45rem;
+    }
+    .order-confirmation p {
+      color: var(--muted);
+    }
+    .tracking-box {
+      margin: 1rem 0;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: .95rem;
+      display: grid;
+      gap: .3rem;
+    }
+    .tracking-box span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .86rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+    .tracking-box strong {
+      color: var(--ink);
+      font-size: 1.3rem;
+      letter-spacing: .04em;
+    }
+    .confirmation-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: .9rem;
+    }
+
+
+    /* Contact */
+    .contact {
+      background: var(--cream);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .panel {
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,242,.78);
+      box-shadow: 0 18px 55px rgba(30,22,15,.10);
+      padding: 1.3rem;
+    }
+    .contact-line {
+      margin-top: 1rem;
+      display: grid;
+      gap: .65rem;
+    }
+    .contact-line div {
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.48);
+      padding: .85rem;
+    }
+    .contact-line b {
+      display: block;
+      color: var(--ink);
+    }
+    form { display: grid; gap: .8rem; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+    }
+    label {
+      font-weight: 900;
+      color: var(--ink);
+      font-size: .9rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      margin-top: .35rem;
+      border-radius: 17px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: .92rem .95rem;
+      font: inherit;
+      color: var(--ink);
+    }
+    textarea { min-height: 132px; resize: vertical; }
+
+    footer {
+      background: #0e0b09;
+      color: rgba(255,255,255,.72);
+      padding: 2rem 0;
+    }
+    footer strong { color: #fff; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    footer small {
+      display: block;
+      color: rgba(255,255,255,.52);
+      margin-top: .8rem;
+    }
+
+    @media (max-width: 1080px) {
+      .nav-links, .nav-actions { display: none; }
+      .gate-layout, .choice-wall, .split, .shop-hero, .shop-grid, .contact-grid, .footer-grid, .cart-panel-inner { grid-template-columns: 1fr; }
+      .cart-list { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+      .choice-wall { min-height: auto; }
+      .choice-card { min-height: 440px; }
+      .service-strip, .gallery, .products, .flow { grid-template-columns: repeat(2, 1fr); }
+      .shop-side { position: static; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 24px, 1220px); }
+      .site-header { position: sticky; }
+      .nav { height: 72px; }
+      .brand-logo { width: 172px; }
+      .gate { padding-top: 20px; }
+      .gate-layout { min-height: auto; }
+      h1 { font-size: 3.15rem; }
+      h2 { font-size: 2.65rem; }
+      .mini-proof, .service-strip, .gallery, .products, .flow, .dash-grid, .form-row { grid-template-columns: 1fr; }
+      .choice-card { min-height: 420px; padding: .9rem; border-radius: 28px; }
+      .floating-cart { left: 12px; right: 12px; width: auto; }
+      .choice-content { padding: .95rem; }
+      .btn { width: 100%; }
+      section.content-section { padding: 4rem 0; }
+      .section-head { flex-direction: column; align-items: start; }
+      .vitrine-visual { min-height: 390px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#accueil" aria-label="ATELIUM Rénovation & Design">
+        <img class="brand-logo" src="data:image/jpeg;base64,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" alt="ATELIUM Rénovation & Design" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#vitrine">Espace rénovation</a></li>
+        <li><a href="#boutique">Boutique matériaux</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn light" href="#boutique">Boutique</a>
+        <a class="btn dark" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="accueil">
+    <section class="gate">
+      <div class="container gate-layout">
+        <div class="gate-intro">
+          <div>
+            <span class="eyebrow">Fameck · Moselle</span>
+            <h1>Deux espaces. Une même exigence.</h1>
+            <p class="lead">
+              ATELIUM Rénovation & Design accompagne vos projets d’intérieur et vous donne accès à un espace matériaux pour consulter les produits, préparer vos achats et vérifier les disponibilités.
+            </p>
+          </div>
+
+          <div>
+            <div class="mini-proof">
+              <div><strong>Rénovation</strong><span>projets intérieurs</span></div>
+              <div><strong>Design</strong><span>matières & finitions</span></div>
+              <div><strong>Matériaux</strong><span>catalogue & stock</span></div>
+            </div>
+            <p class="gate-note">
+              Choisissez votre parcours dès maintenant : découvrir l’entreprise ou accéder directement à la boutique matériaux.
+            </p>
+          </div>
+        </div>
+
+        <div class="choice-wall">
+          <a class="choice-card vitrine" href="#vitrine">
+            <div class="choice-top">
+              <span class="choice-pill">Espace rénovation</span>
+              <span class="choice-number">01</span>
+            </div>
+            <div class="choice-content">
+              <h2>J’ai un projet</h2>
+              <p>Découvrez ATELIUM, les prestations, l’approche design, les réalisations et les demandes de devis.</p>
+              <div class="choice-actions">
+                <span class="btn ghost">Découvrir l’entreprise →</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="choice-card shop" href="#boutique">
+            <div class="choice-top">
+              <span class="choice-pill">Boutique matériaux</span>
+              <span class="choice-number">02</span>
+            </div>
+            <div class="choice-content">
+              <h2>Je cherche des matériaux</h2>
+              <p>Consultez le catalogue, les disponibilités, les produits en stock et préparez une demande d’achat.</p>
+              <div class="choice-actions">
+                <span class="btn ghost">Accéder à la boutique →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="vitrine" class="content-section vitrine-page page-anchor">
+      <div class="container">
+        <div class="split">
+          <div class="editorial">
+            <span class="eyebrow">Espace rénovation</span>
+            <h2>Un accompagnement complet pour transformer vos espaces.</h2>
+            <p>
+              ATELIUM accompagne particuliers et professionnels dans leurs projets d’aménagement, de rénovation et de valorisation intérieure. L’objectif : créer des lieux cohérents, fonctionnels et durables, avec une attention portée aux matières, à la lumière et aux finitions.
+            </p>
+
+            <div class="editorial-list">
+              <div class="line-item">Rénovation intérieure <span>01</span></div>
+              <div class="line-item">Design & agencement <span>02</span></div>
+              <div class="line-item">Choix des matériaux <span>03</span></div>
+              <div class="line-item">Suivi et coordination <span>04</span></div>
+            </div>
+
+            <div style="display:flex; gap:.65rem; flex-wrap:wrap; margin-top:1.1rem;">
+              <a class="btn dark" href="#contact">Présenter mon projet</a>
+              <a class="btn light" href="#realisations">Voir les réalisations</a>
+            </div>
+          </div>
+
+          <div class="vitrine-visual">
+            <div class="visual-label">
+              <strong>Rénovation, design & sélection matériaux</strong>
+              <span>Une approche pensée pour relier conseil, projet et choix des finitions.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-strip">
+          <article class="service-mini">
+            <b>01</b><h3>Étude du projet</h3><p>Comprendre les usages, les contraintes et le rendu attendu.</p>
+          </article>
+          <article class="service-mini">
+            <b>02</b><h3>Ambiance & design</h3><p>Définir une direction esthétique cohérente avec le lieu.</p>
+          </article>
+          <article class="service-mini">
+            <b>03</b><h3>Matériaux</h3><p>Orienter vers les revêtements, teintes et finitions adaptés.</p>
+          </article>
+          <article class="service-mini">
+            <b>04</b><h3>Travaux</h3><p>Structurer les étapes et valoriser le suivi du chantier.</p>
+          </article>
+          <article class="service-mini">
+            <b>05</b><h3>Finitions</h3><p>Soigner les détails qui donnent de la valeur à l’espace.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="realisations" class="content-section page-anchor">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Réalisations</span>
+            <h2>Des intérieurs pensés dans le détail.</h2>
+          </div>
+          <p>
+            Une présentation visuelle élégante pour valoriser les projets, les transformations, les ambiances et la qualité des finitions.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <article class="project">
+            <div class="caption">
+              <small>Pièce de vie</small>
+              <h3>Ambiance claire & matières naturelles</h3>
+            </div>
+          </article>
+          <article class="project">
+            <div class="caption">
+              <small>Cuisine</small>
+              <h3>Agencement moderne et finitions propres</h3>
+            </div>
+          </article>
+          <article class="project">
+            <div class="caption">
+              <small>Détails</small>
+              <h3>Revêtements, textures et harmonies</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="boutique" class="content-section shop-page page-anchor">
+      <div class="container">
+        <div class="shop-hero">
+          <div class="shop-intro">
+            <span class="eyebrow">Boutique matériaux</span>
+            <h2>Un espace dédié aux produits et disponibilités.</h2>
+            <p>
+              Consultez les catégories de matériaux, ajoutez vos produits au panier et passez à l’étape de paiement.
+            </p>
+            <div style="display:flex; gap:.65rem; flex-wrap:wrap; margin-top:1rem;">
+              <a class="btn red" href="#catalogue">Voir le catalogue</a>
+              <a class="btn light" href="#contact">Demander un produit</a>
+            </div>
+          </div>
+
+          <div class="shop-dashboard">
+            <span class="eyebrow" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.16);">Vue boutique</span>
+            <h3 style="color:#fff; font-size:clamp(1.8rem,3vw,3.2rem); margin:.8rem 0 .45rem; font-family:Georgia,'Times New Roman',serif; letter-spacing:-.04em; line-height:1;">
+              Catalogue, stock, demande et commande.
+            </h3>
+            <p>Un parcours pensé pour les clients qui savent ce qu’ils recherchent et veulent aller directement vers les matériaux.</p>
+
+            <div class="dash-grid">
+              <div class="dash-card"><strong>4</strong><span>catégories principales</span></div>
+              <div class="dash-card"><strong>6</strong><span>produits en avant</span></div>
+              <div class="dash-card"><strong>24h</strong><span>confirmation à valider</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="catalogue" class="shop-grid">
+          <aside class="shop-side">
+            <h3>Catégories</h3>
+            <a class="cat active" href="#catalogue"><span>Tous les produits</span><b>6</b></a>
+            <a class="cat" href="#catalogue"><span>Revêtements</span><b>2</b></a>
+            <a class="cat" href="#catalogue"><span>Peintures & finitions</span><b>2</b></a>
+            <a class="cat" href="#catalogue"><span>Préparation</span><b>2</b></a>
+            <a class="cat" href="#catalogue"><span>Accessoires</span><b>—</b></a>
+
+            <div class="cart-sim">
+              <h3 style="color:#fff;">Mon panier</h3>
+              <p>Ajoutez des produits, vérifiez votre sélection puis passez à l’étape paiement.</p>
+              <a class="btn ghost" style="margin-top:.8rem; width:100%;" href="#panier">Voir mon panier</a>
+            </div>
+          </aside>
+
+          <div class="products">
+            <article class="product">
+              <div class="product-img">
+                <span class="stock">Stock : 12</span>
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=82" alt="Carrelage effet pierre" />
+              </div>
+              <div class="product-body">
+                <small>Revêtements</small>
+                <h3>Carrelage effet pierre</h3>
+                <p>Revêtement élégant pour sols et murs, selon projet.</p>
+                <div class="price">42,90 € / m²</div>
+                <div class="product-actions">
+                  <button class="btn dark add-to-cart" type="button" data-name="Carrelage effet pierre" data-category="Revêtements" data-price="42.90">Ajouter au panier</button>
+                  <a class="btn light" href="#panier">Voir mon panier</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-img">
+                <span class="stock low">Stock : 8</span>
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=82" alt="Parquet chêne clair" />
+              </div>
+              <div class="product-body">
+                <small>Revêtements</small>
+                <h3>Parquet chêne clair</h3>
+                <p>Finition chaleureuse pour espaces intérieurs.</p>
+                <div class="price">29,90 € / m²</div>
+                <div class="product-actions">
+                  <button class="btn dark add-to-cart" type="button" data-name="Parquet chêne clair" data-category="Revêtements" data-price="29.90">Ajouter au panier</button>
+                  <a class="btn light" href="#panier">Voir mon panier</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-img">
+                <span class="stock">Stock : 15</span>
+                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=82" alt="Peinture blanc mat" />
+              </div>
+              <div class="product-body">
+                <small>Peintures</small>
+                <h3>Peinture blanc mat</h3>
+                <p>Peinture mate pour murs et finitions intérieures.</p>
+                <div class="price">49,90 € / pot</div>
+                <div class="product-actions">
+                  <button class="btn dark add-to-cart" type="button" data-name="Peinture blanc mat" data-category="Peintures" data-price="49.90">Ajouter au panier</button>
+                  <a class="btn light" href="#panier">Voir mon panier</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-img">
+                <span class="stock">Stock : 30</span>
+                <img src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=900&q=82" alt="Colle carrelage" />
+              </div>
+              <div class="product-body">
+                <small>Préparation</small>
+                <h3>Colle carrelage 25 kg</h3>
+                <p>Produit technique pour la pose de revêtements.</p>
+                <div class="price">18,90 € / sac</div>
+                <div class="product-actions">
+                  <button class="btn dark add-to-cart" type="button" data-name="Colle carrelage 25 kg" data-category="Préparation" data-price="18.90">Ajouter au panier</button>
+                  <a class="btn light" href="#panier">Voir mon panier</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-img">
+                <span class="stock">Stock : 18</span>
+                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=900&q=82" alt="Joint finition gris clair" />
+              </div>
+              <div class="product-body">
+                <small>Finitions</small>
+                <h3>Joint finition gris clair</h3>
+                <p>Finition adaptée aux revêtements et zones humides.</p>
+                <div class="price">11,90 € / sac</div>
+                <div class="product-actions">
+                  <button class="btn dark add-to-cart" type="button" data-name="Joint finition gris clair" data-category="Finitions" data-price="11.90">Ajouter au panier</button>
+                  <a class="btn light" href="#panier">Voir mon panier</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-img">
+                <span class="stock low">Stock : 10</span>
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=900&q=82" alt="Sous-couche universelle" />
+              </div>
+              <div class="product-body">
+                <small>Préparation</small>
+                <h3>Sous-couche universelle</h3>
+                <p>Préparation des supports avant finition.</p>
+                <div class="price">34,90 € / pot</div>
+                <div class="product-actions">
+                  <button class="btn dark add-to-cart" type="button" data-name="Sous-couche universelle" data-category="Préparation" data-price="34.90">Ajouter au panier</button>
+                  <a class="btn light" href="#panier">Voir mon panier</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="flow">
+          <article class="flow-card"><b>1</b><h3>Choix produit</h3><p>Le client consulte le catalogue et ajoute ses produits au panier.</p></article>
+          <article class="flow-card"><b>2</b><h3>Disponibilité</h3><p>Les quantités sont vérifiées avant confirmation définitive.</p></article>
+          <article class="flow-card"><b>3</b><h3>Panier</h3><p>Le client ajuste ses quantités et vérifie sa sélection.</p></article>
+          <article class="flow-card"><b>4</b><h3>Paiement</h3><p>Le client passe à l’étape de règlement sécurisé.</p></article>
+        </div>
+
+        <div id="panier" class="cart-panel-section page-anchor">
+          <div class="section-head" style="margin-top:3rem;">
+            <div>
+              <span class="eyebrow">Mon panier</span>
+              <h2>Votre sélection matériaux.</h2>
+            </div>
+            <p>
+              Vérifiez vos produits, ajustez les quantités puis passez à l’étape de paiement sécurisé.
+            </p>
+          </div>
+
+          <div class="cart-panel">
+            <div class="cart-panel-inner">
+              <div class="cart-list">
+                <h3>Produits ajoutés</h3>
+                <div id="cartItems">
+                  <div class="empty-cart">Votre panier est vide. Ajoutez un produit depuis le catalogue.</div>
+                </div>
+              </div>
+
+              <div class="checkout-box">
+                <h3>Paiement</h3>
+                <div class="summary-line"><span>Sous-total</span><strong id="subtotal">0,00 €</strong></div>
+                <div class="summary-line"><span>Retrait / livraison</span><strong>À confirmer</strong></div>
+                <div class="summary-line total"><span>Total estimé</span><strong id="total">0,00 €</strong></div>
+
+                <div class="payment-methods">
+                  <div class="payment-method">Carte bancaire</div>
+                  <div class="payment-method">Virement</div>
+                  <div class="payment-method">Retrait</div>
+                </div>
+
+                <form class="checkout-form" id="checkoutForm">
+                  <input id="customerName" type="text" placeholder="Nom complet" />
+                  <input id="customerEmail" type="email" placeholder="Adresse e-mail" />
+                  <input id="customerPhone" type="tel" placeholder="Téléphone" />
+                  <button class="btn red" type="submit">Passer au paiement</button>
+                </form>
+
+                <p class="checkout-note">
+                  Paiement présenté en parcours de démonstration. En production, cette étape sera reliée à une solution d’encaissement sécurisée, avec confirmation du stock avant validation.
+                </p>
+
+                <div class="order-confirmation" id="orderConfirmation">
+                  <div class="success-icon">✓</div>
+                  <h3>Merci pour votre achat.</h3>
+                  <p>
+                    Votre commande a bien été enregistrée. ATELIUM vous transmettra les informations de retrait, de disponibilité ou de livraison selon les produits sélectionnés.
+                  </p>
+
+                  <div class="tracking-box">
+                    <span>Numéro de suivi commande</span>
+                    <strong id="trackingNumber">ATL-000000</strong>
+                  </div>
+
+                  <p>
+                    Un récapitulatif de commande sera envoyé à l’adresse e-mail renseignée. Conservez ce numéro pour suivre l’avancement de votre demande.
+                  </p>
+
+                  <div class="confirmation-actions">
+                    <a class="btn dark" href="#boutique">Continuer mes achats</a>
+                    <a class="btn light" href="#contact">Contacter ATELIUM</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="content-section contact page-anchor">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Contact</span>
+            <h2>Votre demande concerne un projet ou un produit ?</h2>
+          </div>
+          <p>
+            Sélectionnez le bon type de demande pour être orienté vers l’espace rénovation ou vers la boutique matériaux.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <aside class="panel">
+            <h3>ATELIUM Rénovation & Design S.A.S</h3>
+            <p style="margin-top:.45rem;">
+              Rénovation intérieure, design, accompagnement projet et boutique matériaux.
+            </p>
+
+            <div class="contact-line">
+              <div><b>Téléphone</b><span>06 10 75 17 15</span></div>
+              <div><b>Adresse</b><span>6A, rue des Mésanges, 57290 Fameck</span></div>
+              <div><b>Parcours</b><span>Projet de rénovation ou demande boutique matériaux.</span></div>
+            </div>
+          </aside>
+
+          <div class="panel">
+            <form onsubmit="event.preventDefault(); alert('Votre demande a été préparée. Le formulaire sera connecté lors de la mise en ligne officielle.');">
+              <div class="form-row">
+                <label>Nom
+                  <input type="text" placeholder="Votre nom" />
+                </label>
+                <label>Téléphone
+                  <input type="tel" placeholder="Votre téléphone" />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>Email
+                  <input type="email" placeholder="votre@email.fr" />
+                </label>
+                <label>Ville
+                  <input type="text" placeholder="Votre ville" />
+                </label>
+              </div>
+
+              <label>Type de demande
+                <select>
+                  <option>Choisir…</option>
+                  <option>Projet de rénovation</option>
+                  <option>Design intérieur / accompagnement</option>
+                  <option>Disponibilité produit</option>
+                  <option>Commande matériaux</option>
+                  <option>Autre demande</option>
+                </select>
+              </label>
+
+              <label>Message
+                <textarea placeholder="Décrivez votre projet ou le produit recherché…"></textarea>
+              </label>
+
+              <button class="btn dark" type="submit">Envoyer ma demande</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>ATELIUM Rénovation & Design</strong>
+        <p>Rénovation intérieure, design, accompagnement projet et boutique matériaux.</p>
+        <small>Proposition digitale personnalisée — Altérys IA</small>
+      </div>
+      <div>
+        <strong>Information</strong>
+        <p>Site de présentation non officiel réalisé à titre de proposition commerciale. Les disponibilités, prix et informations produits sont à confirmer auprès d’ATELIUM.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="btn red floating-cart" href="#panier">Mon panier <span class="cart-count" id="cartCount">0</span></a>
+
+  <script>
+    const cart = [];
+    const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' });
+
+    function renderCart() {
+      const cartItems = document.getElementById('cartItems');
+      const cartCount = document.getElementById('cartCount');
+      const subtotalEl = document.getElementById('subtotal');
+      const totalEl = document.getElementById('total');
+
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      const subtotal = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
+
+      cartCount.textContent = totalQty;
+      subtotalEl.textContent = formatter.format(subtotal);
+      totalEl.textContent = formatter.format(subtotal);
+
+      if (!cart.length) {
+        cartItems.innerHTML = '<div class="empty-cart">Votre panier est vide. Ajoutez un produit depuis le catalogue.</div>';
+        return;
+      }
+
+      cartItems.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+          <div>
+            <strong>${item.name}</strong>
+            <span>${item.category} · ${formatter.format(item.price)} · Quantité : ${item.qty}</span>
+          </div>
+          <div class="qty-controls">
+            <button type="button" onclick="changeQty(${index}, -1)">−</button>
+            <button type="button" onclick="changeQty(${index}, 1)">+</button>
+            <button type="button" class="remove-item" onclick="removeItem(${index})">Retirer</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addToCart(name, category, price) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, category, price: Number(price), qty: 1 });
+      }
+      renderCart();
+      document.getElementById('panier').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) cart.splice(index, 1);
+      renderCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    function generateTrackingNumber() {
+      const date = new Date();
+      const y = String(date.getFullYear()).slice(-2);
+      const m = String(date.getMonth() + 1).padStart(2, '0');
+      const d = String(date.getDate()).padStart(2, '0');
+      const random = Math.floor(1000 + Math.random() * 9000);
+      return `ATL-${y}${m}${d}-${random}`;
+    }
+
+    function showOrderConfirmation() {
+      if (!cart.length) {
+        alert('Votre panier est vide. Ajoutez au moins un produit avant de passer au paiement.');
+        document.getElementById('catalogue').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+
+      const trackingNumber = generateTrackingNumber();
+      document.getElementById('trackingNumber').textContent = trackingNumber;
+      document.getElementById('orderConfirmation').classList.add('is-visible');
+      document.getElementById('orderConfirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        addToCart(button.dataset.name, button.dataset.category, button.dataset.price);
+      });
+    });
+
+    document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      showOrderConfirmation();
+    });
+
+    renderCart();
+  </script>
+
+</body>
+</html>
